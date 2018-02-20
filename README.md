@@ -1,3 +1,3 @@
 Liber Capital Blog
 
-  Este é um projeto de criação de um blog simples em RoR.
+Este é um projeto de criação de um blog simples em RoR.
