@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+	#include the module
+	include ArticlesHelper
+
 	def index
 		#All the articles that were created before are now at the articles variable
   		@articles = Article.all
@@ -18,8 +21,8 @@ class ArticlesController < ApplicationController
 		#creates a new article
 		@article = Article.new
 		#takes the values
-  		@article.title = params[:article][:title]
-  		@article.body  = params[:article][:body]
+		@article = Article.new(article_params)
+
   		#pull to the database
   		@article.save
 
@@ -31,8 +34,14 @@ class ArticlesController < ApplicationController
 		Article.find(params[:id]).destroy
 		redirect_to action:"index"
 	end
-	
+
+	#creates an article to be updatted
 	def edit
+  		@article = Article.find(params[:id])
+	end
+
+	#method that save de new configuration
+	def update
 		@article = Article.find(params[:id])
 		@article.update(article_params)
 
