@@ -7,12 +7,35 @@
 		<%= link_to "DELETE", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"}, class:"btn btn-danger" %>
 	</div>
 </div>
-<div class="col-2 text-truncate row">
+</br>
+<div class="container-fluid">
 	<%= @article.body %>
 </div>
 </br>
-<div class="d-flex justify-content-between ">
-	<div>
-		<%= link_to "BACK" , articles_path , class:"btn btn-default btn-primary"  %>
+<div class="container-fluid d-flex justify-content-between">
+	<div class="d-flex justify-content-between">
+		<h4>Comments (<%= @article.comments.size %>)</h4>
 	</div>
+</div>
+
+<%= render partial: 'articles/comment', collection: @article.comments.reverse %>
+
+</br>
+
+
+<div class="container-fluid d-flex justify-content-between">
+	<h4>Post a Comment</h4>
+</div>
+
+
+<div class="container-fluid d-flex justify-content-between">
+	<div class="container-fluid">
+		<%= render partial: 'comments/form' %>
+	</div>
+</div>
+
+</br>
+
+<div class="d-flex justify-content-between">
+		<%= link_to "BACK" , articles_path , class:"btn btn-default btn-primary"  %>
 </div>

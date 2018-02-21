@@ -11,6 +11,9 @@ class ArticlesController < ApplicationController
   def show
     # article has an article with an especific id.
     @article = Article.find(params[:id])
+    # creates a black comment.
+    @comment = Comment.new
+    @comment.article_id = @article.id
   end
 
   def new
