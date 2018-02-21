@@ -43,12 +43,10 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
-  # method that save de new configuration
+  # method that save the new configuration
   def update
     @article = Article.find(params[:id])
     @article.update(article_params)
-
-    flash.notice = "Article '#{@article.title}' Updated!"
 
     redirect_to article_path(@article)
   end
