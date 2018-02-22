@@ -1,0 +1,23 @@
+<div class="container-fluid">
+	<ul class="list-group-item" >
+	  <div class="d-flex justify-content-between align-items-center">
+		  
+		<%= form_with model: [ @article, @comment ] do |f| %>
+		  <ul class="list-group">
+		  <% @article.errors.full_messages.each do |error| %>
+		    <li class="list-group-item" ><%= error %></li>
+		  <% end %>
+		  </ul>
+		  <div class="form-group">
+		    <%= f.label :author_name, class: "col-md-4 control-label" %><br />
+		    <%= f.text_field :author_name, class: "form-control" %>
+		  </div>
+		  <div class="form-group">
+		    <%= f.label :body, class: "col-md-4 control-label" %><br />
+		    <%= f.text_area :body, class: "form-control" %>
+		  </div>
+		  <%= f.submit "Submit", class:"btn btn-default btn-primary" %>
+		<% end %>
+	  </div>
+	</ul>
+</div>
