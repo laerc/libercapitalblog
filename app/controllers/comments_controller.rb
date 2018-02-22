@@ -20,6 +20,11 @@ class CommentsController < ApplicationController
   def edit
     @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
+
+    respond_to do |format|
+      format.js
+      format.html { render action: 'edit' }
+    end
   end
 
   def update

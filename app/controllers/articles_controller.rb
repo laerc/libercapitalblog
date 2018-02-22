@@ -21,16 +21,18 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    @status = false
     # creates a new article
     @article = Article.new
     # takes the values
     @article = Article.new(article_params)
-
+    @status = true
     # pull to the database
     @article.save
 
     # redirects the page
     redirect_to article_path(@article)
+    @status = false
   end
 
   def destroy
