@@ -6,11 +6,11 @@
   </ul>
   <div class="form-group">
     <%= f.label :author_name, class: "col-md-4 control-label" %><br />
-    <%= f.text_field :author_name, class: "form-control" %>
+    <%= f.text_field :author_name, class: "form-control", :required => 'required' %>
   </div>
   <div class="form-group">
     <%= f.label :body, class: "col-md-4 control-label" %><br />
-    <%= f.text_area :body, class: "form-control" %>
+    <%= f.text_area :body, class: "form-control", :required => 'required', maxlength: 250 %>
   </div>
   <%= f.submit "Submit", class:"btn btn-default btn-primary" %>
 <% end %>

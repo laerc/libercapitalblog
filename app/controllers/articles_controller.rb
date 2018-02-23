@@ -3,6 +3,14 @@ class ArticlesController < ApplicationController
   # Include the module
   include ArticlesHelper
 
+  def slug
+    @article.title.downcase.grub(' ', '-')
+  end
+
+  def to_param
+    "#{slug}"
+  end
+
   def index
     # All the articles that were created before are now at the articles variable
     @articles = Article.all
