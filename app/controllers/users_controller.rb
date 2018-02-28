@@ -1,21 +1,9 @@
-class UsersController < ApplicationController
-  def index
-    @users = User.all
-  end
+class ApplicationController < ActionController::Base
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def new
-    @user = User.new
-  end
+  protected
 
-  def create
-    @articles = Article.all
-    @user = User.new
-    @user = User.new(user_params)
-    @user.save
-    redirect_to article_path(@articles)
-  end
-
-  def user_params
-    params.require(:user).permit(:name, :email, :password)
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
   end
 end
