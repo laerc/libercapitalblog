@@ -17,9 +17,9 @@
 		<h4>Comments (<%= @article.comments.size %>)</h4>
 	</div>
 </div>
-
-<%= render partial: 'articles/comment', collection: @article.comments.reverse %>
-
+  <% @comments = @article.comments.paginate(:page => params[:page], :per_page => 4) %>
+  <%= render partial: 'articles/comment'%>
+  <%= will_paginate @comments, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 </br>
 
 
