@@ -3,8 +3,10 @@
 		<h3><%= @article.title %></h3>
 	</div>
 	<div>
+		<% if (user_signed_in?) && (current_user.id == @article.user_id) %>
 		<%= link_to "EDIT", edit_article_path(@article), class:"btn btn-default btn-primary" %>
 		<%= link_to "DELETE", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"}, class:"btn btn-danger" %>
+		<% end %>
 	</div>
 </div>
 </br>
