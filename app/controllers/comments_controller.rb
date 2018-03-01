@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
+
   def create
-    @comment = Comment.new(comment_params)
-    @comment.article_id = params[:article_id]
+    @article = Article.friendly.find(params[:article_id])
+    @comment = @article.comments.new(comment_params)
     @comment.save
 
     redirect_to article_path(@comment.article)
@@ -12,18 +13,18 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:article_id])
+    @article = Article.friendly.find(params[:article_id])
     @article.comments.find(params[:id]).destroy
     redirect_to article_path(@article)
   end
 
   def edit
-    @article = Article.find(params[:article_id])
+    @article = Article.friendly.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:article_id])
+    @article = Article.friendly.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
     @comment.update(comment_params)
 

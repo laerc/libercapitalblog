@@ -17,9 +17,8 @@
 		<h4>Comments (<%= @article.comments.size %>)</h4>
 	</div>
 </div>
-
-<%= render partial: 'articles/comment', collection: @article.comments.reverse %>
-
+  <%= render partial: 'articles/comment'%>
+  <%= will_paginate @comments, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 </br>
 
 

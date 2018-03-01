@@ -3,14 +3,18 @@
   <% @article.errors.full_messages.each do |error| %>
     <li class="list-group-item" ><%= error %></li>
   <% end %>
+  <% if (user_signed_in?) %>
   </ul>
   <div class="form-group">
     <%= f.label :author_name, class: "col-md-4 control-label" %><br />
-    <%= f.text_field :author_name, placeholder:"Author Name", class: "form-control", :required => 'required' %>
+    <%= f.text_field :author_name, placeholder:"Author Name", class: "form-control", :value => current_user.name %>
   </div>
   <div class="form-group">
     <%= f.label :body, class: "col-md-4 control-label" %><br />
     <%= f.text_area :body, class: "form-control", :required => 'required', maxlength: 250 %>
   </div>
   <%= f.submit "Submit", class:"btn btn-default btn-primary" %>
+  <% else %>
+   <div> please, login to comment. </div> 
+  <% end %>
 <% end %>

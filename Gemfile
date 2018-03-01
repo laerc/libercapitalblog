@@ -21,7 +21,16 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'rubocop', '~> 0.52.1', require: false
+
 gem 'bootstrap', '~> 4.0.0.alpha3'
+
+gem 'devise'
+
+gem 'friendly_id', '~> 5.1.0'
+
+gem 'will_paginate', '~> 3.1.0'
+
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
@@ -57,3 +66,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'will_paginate-bootstrap4'
+
