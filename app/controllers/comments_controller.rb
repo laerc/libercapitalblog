@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
+
   def create
-    @comment = Comment.new(comment_params)
     @article = Article.friendly.find(params[:article_id])
-    @comment.article_id = @article.id
+    @comment = @article.comments.new(comment_params)
     @comment.save
 
     redirect_to article_path(@comment.article)

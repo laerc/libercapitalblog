@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
   def show
     # article has an article with an especific id.
     @article = Article.friendly.find(params[:id])
+    @comments = @article.comments.paginate(:page => params[:page], :per_page => 4)
     # creates a black comment.
     @comment = Comment.new
     @comment.article_id = @article.id
