@@ -24,10 +24,10 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    # creates a new article
-    @article = Article.new
     # takes the values
-    @article = Article.new(article_params)
+    @article = current_user.articles.create(article_params)
+    # @article = Article.new(article_params)
+    # @article.user_id = current_user.id
     # pull to the database
     @article.save
 

@@ -9,6 +9,9 @@
 </div>
 </br>
 <div class="container-fluid">
+	Author: <%= User.find(@article.user_id).name %>
+	</br>
+	</br>
 	<%= @article.body %>
 </div>
 </br>
